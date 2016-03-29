@@ -1,6 +1,6 @@
 package com.nyekilajos.excusetxt.dagger;
 
-import com.nyekilajos.excusetxt.MainActivity;
+import com.nyekilajos.excusetxt.view.MainActivity;
 
 import javax.inject.Singleton;
 
