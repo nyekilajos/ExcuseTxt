@@ -18,7 +18,7 @@ public class ExcuseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        excuseComponent = DaggerExcuseComponent.builder().appModule(new AppModule()).build();
+        excuseComponent = DaggerExcuseComponent.builder().appModule(new AppModule(this)).build();
         instance = this;
     }
 

@@ -1,5 +1,7 @@
 package com.nyekilajos.excusetxt.dagger;
 
+import android.content.Context;
+
 import com.nyekilajos.excusetxt.presenter.DefaultExcusePresenter;
 import com.nyekilajos.excusetxt.presenter.ExcusePresenter;
 import com.nyekilajos.excusetxt.provider.DefaultExcuseProvider;
@@ -14,6 +16,12 @@ import dagger.Provides;
 @Module
 public class AppModule {
 
+    private final Context context;
+
+    public AppModule(Context context) {
+        this.context = context;
+    }
+
     @Provides
     ExcusePresenter providesExcusePresenter(ExcuseProvider excuseProvider) {
         return new DefaultExcusePresenter(excuseProvider);
@@ -21,6 +29,6 @@ public class AppModule {
 
     @Provides
     ExcuseProvider providesExcuseProvider() {
-        return new DefaultExcuseProvider();
+        return new DefaultExcuseProvider(context);
     }
 }
