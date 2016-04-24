@@ -20,6 +20,7 @@ public class DefaultExcusePresenter implements ExcusePresenter {
     @Override
     public void bindView(ExcuseView view) {
         this.view = view;
+        view.showAllExcuses(excuseProvider.fetchAllExcuses());
     }
 
     @Override

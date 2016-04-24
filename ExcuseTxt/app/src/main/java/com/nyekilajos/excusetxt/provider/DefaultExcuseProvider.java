@@ -33,9 +33,8 @@ public class DefaultExcuseProvider implements ExcuseProvider {
         Map<String, ?> dbMap = excuseStore.getAll();
         List<Excuse> ret = new ArrayList<>();
         for (Map.Entry<String, ?> entry : dbMap.entrySet()) {
-            long id = Long.parseLong(entry.getKey());
-            String desc = (String) entry.getValue();
-            ret.add(new Excuse(id, desc));
+            String json = (String) entry.getValue();
+            ret.add(gson.fromJson(json, Excuse.class));
         }
         return ret;
     }
